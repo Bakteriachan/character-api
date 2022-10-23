@@ -7,6 +7,7 @@ let config = {
         user: process.env.MYSQL_USER || "root",
         password: process.env.MYSQL_PASS || "",
         database: process.env.MYSQL_DB || 'characters-api',
+        port: process.env.MYSQL_PORT || 3306,
     },
     mysql_service : {
         PORT: process.env.MYSQL_SERVICE_PORT || 3001,
