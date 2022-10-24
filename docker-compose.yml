@@ -27,7 +27,7 @@ services:
     command: sh -c "npm install && node ./api/index.js"
     ports:
       - 3000:3000
-    workdir: /app
+    working_dir: /app
     volumes:
       - ./:/app
     environment:
@@ -38,7 +38,7 @@ services:
     command: sh -c "npm install && node ./posts/index.js"
     ports:
       - 3002:3002
-    workdir: /app
+    working_dir: /app
     volumes:
       - ./:/app
     environment:
