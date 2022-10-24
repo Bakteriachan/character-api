@@ -2,7 +2,7 @@ version: "3.7"
 services:
   storage-mysql:
     image: node:16
-    command: npm install && node mysql/index.js
+    command: npm install && node ./mysql/index.js
     ports:
       - "3001:3001"
     working_dir: /app
@@ -15,11 +15,10 @@ services:
     image: mysql
     volumes:
       - ocDatabase:/var/lib/mysql
-      - ./storage:/app
+      - ./storage:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD="database_password"
       - MYSQL_DATABASE="characters-api"
-    command: ["mysql", "characters-api", "<", "/app/database_schema.sql"]
 
 volumes:
   ocDatabase:
