@@ -29,8 +29,8 @@ function remote(host, port){
                 },
                 body: data,
             }, (err, response, body) => {
-                if(err || !body)reject(err);
-                console.log(body);
+                if(err || typeof(body) === "undefined")reject(err);
+                console.log('body:',body);
                 result = JSON.parse(body);
                 if(result.error) { 
                     reject(error(result.error, 500));
