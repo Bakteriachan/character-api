@@ -20,3 +20,6 @@ services:
       - MYSQL_ROOT_PASSWORD="database_password"
       - MYSQL_DATABASE="characters-api"
     command: ["mysql", "characters-api", "<", "/app/database_schema.sql"]
+
+volumes:
+  ocDatabase:
