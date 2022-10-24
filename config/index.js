@@ -11,6 +11,7 @@ let config = {
     },
     mysql_service : {
         PORT: process.env.MYSQL_SERVICE_PORT || 3001,
+        HOST_NAME: process.env.MYSQL_SERVICE_HOST_NAME || 'localhost',
     },
     secure: {
         TOKEN: process.env.SECURE_TOKEN || 'not_a_token',

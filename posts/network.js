@@ -5,7 +5,7 @@ import remote from "../storage/remote.js";
 import config from "../config/index.js";
 import response from "../network/response.js";
 
-const Controller = controller(remote('localhost', config.mysql_service.PORT));
+const Controller = controller(remote(config.mysql_service.HOST_NAME, config.mysql_service.PORT));
 const router = express.Router();
 
 router.get('/', (req, res, next) => {

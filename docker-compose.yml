@@ -1,16 +1,18 @@
 version: "3.7"
 services:
+  
   storage:
     image: node:16
     command: sh -c "npm install && node ./mysql/index.js"
-    ports:
-      - 3001:3001
     working_dir: /app
     volumes:
       - ./:/app
     environment:
       - MYSQL_HOST=database
       - MYSQL_PASS=database_password
+    ports:
+      - 3001
+  
   database:
     image: mysql:5.7
     volumes:
@@ -19,6 +21,28 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=database_password
       - MYSQL_DATABASE=characters-api
+  
+  api:
+    image: node:16
+    command: sh -c "npm install && node ./api/index.js"
+    ports:
+      - 3000:3000
+    workdir: /app
+    volumes:
+      - ./:/app
+    environment:
+      - MYSQL_SERVICE_HOST_NAME=storage
+
+  posts:
+    image: node:16
+    command: sh -c "npm install && node ./posts/index.js"
+    ports:
+      - 3002:3002
+    workdir: /app
+    volumes:
+      - ./:/app
+    environment:
+      - MYSQL_SERVICE_HOST_NAME=storage
 
 volumes:
   ocDatabase:
