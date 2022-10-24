@@ -32,7 +32,7 @@ function remote(host, port){
             }, (err, response, body) => {
                 if(err || typeof(body) == "undefined")reject(error(err || null,500));
                 console.log('body:',body);
-                result = JSON.parse(body);
+                let result = JSON.parse(body);
                 if(result.error) { 
                     reject(error(result.error, 500));
                 }
