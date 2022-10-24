@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  storage-mysql:
+    image: node:16
+    command: npm install && node mysql/index.js
+    ports:
+      - "3001:3001"
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      - MYSQL_HOST="oc-mysql-database"
+      - MYSQL_PASS="database_password"
+  oc-mysql-database:
+    image: mysql
+    networks:
+      - ocnetwork
+    volumes:
+      - ocDatabase:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD="database_password"
+    ports:
