@@ -29,7 +29,7 @@ function remote(host, port){
                 },
                 body: data,
             }, (err, response, body) => {
-                if(err || typeof(body) === "undefined")reject(err);
+                if(err || typeof(body) == "undefined")reject(error(err || null,500));
                 console.log('body:',body);
                 result = JSON.parse(body);
                 if(result.error) { 

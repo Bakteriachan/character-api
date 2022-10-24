@@ -10,8 +10,6 @@ services:
     environment:
       - MYSQL_HOST=database
       - MYSQL_PASS=database_password
-    ports:
-      - 3001
   
   database:
     image: mysql:5.7
