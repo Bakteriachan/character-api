@@ -10,8 +10,10 @@ services:
     environment:
       - MYSQL_HOST=database
       - MYSQL_PASS=database_password
+    ports:
+      - 3001:3001
   
-  database:
+  database: 
     image: mysql:5.7
     volumes:
       - ocDatabase:/var/lib/mysql

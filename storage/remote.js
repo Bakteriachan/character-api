@@ -21,6 +21,7 @@ function remote(host, port){
 
     function req(url, method, data){
         if(data) data = JSON.stringify(data);
+        console.error(url);
         return new Promise((resolve, reject) => {
             request(url, {
                 method: method,
