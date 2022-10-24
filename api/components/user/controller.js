@@ -18,7 +18,7 @@ function ctrl(storage){
         return storage.get(TABLA,id)
     }
 
-    function insert(data){
+    async function insert(data){
         const user_data = {};
         if(!data.id){
             user_data.id = nanoid();
@@ -31,11 +31,13 @@ function ctrl(storage){
             user_data.username = data.username;
         }
 
-        if (storage.query(TABLA,{username: user_data.username})){
-            return new Promise((res, rej) => {
-                rej(error('username already exists', 400));
+        if(await storage.query(TABLA,{username: user_data.username})){
+            return new Promise((resolve, reject) => {
+                reject(error('Username already exists', 400));
             });
         }
+        
+            
 
         if(data.name === undefined){
             throw new error('No name specified for this user', 400);

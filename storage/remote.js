@@ -21,7 +21,6 @@ function remote(host, port){
 
     function req(url, method, data){
         if(data) data = JSON.stringify(data);
-        console.error(url);
         return new Promise((resolve, reject) => {
             request(url, {
                 method: method,
@@ -31,7 +30,6 @@ function remote(host, port){
                 body: data,
             }, (err, response, body) => {
                 if(err || typeof(body) == "undefined")reject(error(err || null,500));
-                console.log('body:',body);
                 let result = JSON.parse(body);
                 if(result.error) { 
                     reject(error(result.error, 500));
