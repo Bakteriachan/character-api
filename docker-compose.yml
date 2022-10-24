@@ -4,7 +4,7 @@ services:
     image: node:16
     command: sh -c "npm install && node ./mysql/index.js"
     ports:
-      - "3001:3001"
+      - 3001:3001
     working_dir: /app
     volumes:
       - ./:/app
