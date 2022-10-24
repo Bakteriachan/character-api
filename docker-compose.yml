@@ -11,6 +11,8 @@ services:
     environment:
       - MYSQL_HOST="oc-mysql-database"
       - MYSQL_PASS="database_password"
+    networks:
+      - ocnetwork
   oc-mysql-database:
     image: mysql
     networks:
