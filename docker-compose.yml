@@ -12,7 +12,7 @@ services:
       - MYSQL_HOST=database
       - MYSQL_PASS=database_password
   database:
-    image: mysql
+    image: mysql:5.7
     volumes:
       - ocDatabase:/var/lib/mysql
       - ./storage:/docker-entrypoint-initdb.d
