@@ -2,7 +2,7 @@ version: "3.7"
 services:
   storage-mysql:
     image: node:16
-    command: npm install && node ./mysql/index.js
+    command: sh -c "npm install && node ./mysql/index.js"
     ports:
       - "3001:3001"
     working_dir: /app
