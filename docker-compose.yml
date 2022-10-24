@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  storage-mysql:
+  storage:
     image: node:16
     command: sh -c "npm install && node ./mysql/index.js"
     ports:
@@ -9,9 +9,9 @@ services:
     volumes:
       - ./:/app
     environment:
-      - MYSQL_HOST="oc-mysql-database"
+      - MYSQL_HOST="database"
       - MYSQL_PASS="database_password"
-  oc-mysql-database:
+  database:
     image: mysql
     volumes:
       - ocDatabase:/var/lib/mysql
