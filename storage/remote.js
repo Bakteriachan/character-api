@@ -30,13 +30,8 @@ function remote(host, port){
                 body: data,
             }, (err, response, body) => {
                 if(err || !body)reject(err);
-                let result;
-                try {
-                    result = JSON.parse(body);
-                } catch (err) {
-                    console.log(body);
-                    reject(error(err.message, 500));
-                }
+                console.log(body);
+                result = JSON.parse(body);
                 if(result.error) { 
                     reject(error(result.error, 500));
                 }
