@@ -11,13 +11,12 @@ services:
     environment:
       - MYSQL_HOST="oc-mysql-database"
       - MYSQL_PASS="database_password"
-    networks:
-      - ocnetwork
   oc-mysql-database:
     image: mysql
-    networks:
-      - ocnetwork
     volumes:
       - ocDatabase:/var/lib/mysql
+      - ./storage:/app
     environment:
       - MYSQL_ROOT_PASSWORD="database_password"
+      - MYSQL_DATABASE="characters-api"
+    command: ["mysql", "characters-api", "<", "/app/database_schema.sql"]
