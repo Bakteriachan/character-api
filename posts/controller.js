@@ -32,13 +32,13 @@ function ctrl(store){
     function insert(data){
         if(!data.id)
             throw new error('Posts must have an id', 400)
-        if(!data.user)
+        if(!data.userid)
             throw new error('Posts must belong to an user', 400);
         
         let timestamp = new Date().valueOf();
         return store.insert(TABLE, {
             id: data.id,
-            user: data.user,
+            userid: data.userid,
             timestamp: timestamp,
         })
     }
