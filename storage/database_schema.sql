@@ -16,9 +16,7 @@ CREATE TABLE IF NOT EXISTS `auth` (
     `id` VARCHAR (35) NOT NULL,
     `username` VARCHAR (35) NOT NULL,
     `password` VARCHAR (40) NOT NULL,
-    Constraint fk_auth1 Foreign Key (`id`) References `characters-api`.`user` (`id`)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    Primary Key(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `posts` (
