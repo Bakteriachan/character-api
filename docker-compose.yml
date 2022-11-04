@@ -2,7 +2,8 @@ version: "3.7"
 services:
   
   database: 
-    image: mysql:5.7
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
     volumes:
       - ocDatabase:/var/lib/mysql
       - ./storage:/docker-entrypoint-initdb.d
