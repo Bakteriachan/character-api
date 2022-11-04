@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 CREATE TABLE IF NOT EXISTS `auth` (
     `id` VARCHAR (35) NOT NULL,
     `username` VARCHAR (35) NOT NULL,
-    `password` VARCHAR (40) NOT NULL,
+    `password` VARCHAR (150) NOT NULL,
     Primary Key(`id`)
 );
 
